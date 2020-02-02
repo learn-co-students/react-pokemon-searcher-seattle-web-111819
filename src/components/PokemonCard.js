@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
 
-// Made this a functional component (doesn't need a state)
+// Converted to a functional component
 const PokemonCard = props => {
   let {name, hp, front, back, showBack} = props.poke
 
@@ -11,6 +11,7 @@ const PokemonCard = props => {
     <Card>
       <div onClick={handleClickPoke}>
         <div className="image">
+          {/* Simple ternary to check which image to use */}
           <img src={showBack ? back : front} alt="oh no!" />
         </div>
         <div className="content">

@@ -3,6 +3,7 @@ import { Form } from 'semantic-ui-react'
 
 class PokemonForm extends Component {
 
+  // Changed the variable names to match how they're stored in the Index
   state = {
     name: '',
     hp: '',
@@ -10,19 +11,26 @@ class PokemonForm extends Component {
     back: ''
   }
 
+  // Controlling the form via state
   handleChange = e => this.setState({[e.target.name]: e.target.value})
+
+
   handleSubmit = e => {
     e.preventDefault()
     let {name, hp, front, back} = this.state
-    // Maybe some error correction on incomplete values here?
-    this.props.onSubmitPoke({
-      name: name,
-      hp: hp,
-      front: front,
-      back: back,
-      showBack: false
-    })
-    this.setState({name: '', hp: '', front: '', back: ''})
+    // Validates that each input is filled in
+    if (name && hp && front && back) {
+      // Builds a pokemon obj and sends it up
+      this.props.onSubmitPoke({
+        name: name,
+        hp: hp,
+        front: front,
+        back: back,
+        showBack: false
+      })
+      // Clears the form
+      this.setState({name: '', hp: '', front: '', back: ''})
+    }
   }
 
   render() {

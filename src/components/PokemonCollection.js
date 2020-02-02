@@ -2,8 +2,10 @@ import React from 'react'
 import PokemonCard from './PokemonCard'
 import { Card } from 'semantic-ui-react'
 
+// Converted this to a functional component
 const PokemonCollection = props => {
 
+  // Building Poke cards with keys
   const showCards = () => props.pokes.map(poke => 
       <PokemonCard 
         key={poke.id}
