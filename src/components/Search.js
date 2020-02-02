@@ -1,14 +1,16 @@
 import React from 'react'
 
-const Search = props => {
-  return (
-    <div className="ui search">
-      <div className="ui icon input">
-        <input className="prompt" onChange={props.onChange} />
-        <i className="search icon" />
-      </div>
+// Made this a simple component
+const Search = props => 
+  <div className="ui search">
+    <div className="ui icon input">
+      <input 
+        className="prompt" 
+        onChange={e => props.onChangeSearch(e.target.value)} 
+        value={props.search}
+      />
+      <i className="search icon" />
     </div>
-  )
-}
+  </div>
 
 export default Search
